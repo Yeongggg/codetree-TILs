@@ -62,6 +62,11 @@ int main() {
             
         }
     }
-    cout<<result;
+    if(result == 0){
+        cout<<-1;
+    }else{
+        cout<<result;
+    }
+
     return 0;
 }
