@@ -13,19 +13,22 @@ int main() {
    
     int x =0; int y =0;
 
-    int arr[101][101];
-    
-    for(int i =0; i<temp; i++){
-        arr[x][y] = start++;
-        
-        int nx = x + dx[dir];
-        int ny = y+ dy[dir];
+    int arr[101][101]={0,};
+    arr[x][y] = start++;
+
+   while(start <= temp){
+    int nx = x + dx[dir];
+    int ny = y+ dy[dir];
 
         if(nx <0 || ny <0 || nx >=n || ny >= m || arr[nx][ny] != 0) {
             dir = (dir+1)%4;
         }
         x+=dx[dir]; y +=dy[dir];
-    }
+        arr[x][y] = start++;
+   }
+      
+        
+    
 
     for(int i =0; i<n; i++){
         for(int j =0; j<m; j++){
