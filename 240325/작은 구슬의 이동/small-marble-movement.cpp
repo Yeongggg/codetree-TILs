@@ -15,20 +15,22 @@ int main() {
     dir = 2;
    }else if(state == 'R'){
     dir =0;
-   }else if( state ='U'){
+   }else if( state =='U'){
     dir = 1;
    }else {
     dir = 3;
    }
 
    for(int i=0; i<t; i++){
+
     int nx = x+ dx[dir]; int ny = y+dy[dir];
-    if(nx <0 || nx >n || ny <= 0 || ny >n){
+
+    if(nx <=0 || nx >n || ny <= 0 || ny >n){
         dir = (dir-2+4)%4; continue;
     }
     x += dx[dir]; y +=dy[dir];
 
    }
-            cout<<x<<' '<<y;
+    cout<<x<<' '<<y;
     return 0;
 }
