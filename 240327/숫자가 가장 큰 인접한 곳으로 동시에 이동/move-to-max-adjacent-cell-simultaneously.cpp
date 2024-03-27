@@ -54,10 +54,13 @@ void Move(int i, int j){
         int nx = dx[k] + i;
         int ny = dy[k] + j;
 
-        if(nx <=0 || ny <= 0 || nx > n || ny > n || maxValue > board[nx][ny]) continue;
-        maxValue = board[nx][ny];
-        maxI = nx;
-        maxJ = ny;
+        if(nx <=0 || ny <= 0 || nx > n || ny > n) continue;
+        if(maxValue < board[nx][ny]){
+            maxValue = board[nx][ny];
+            maxI = nx;
+            maxJ = ny;
+        }
+        
     } 
 
     //해당 위치로 구슬을 이동시킨다.
@@ -97,6 +100,7 @@ void process(){
     }
     // 남아있는 구슬의 개수 계산하기
     int ans =0;
+
     for(int i =1; i<=n; i++){
         for(int j=1; j<=n; j++){
             ans+= cnt[i][j];
