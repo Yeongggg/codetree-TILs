@@ -25,7 +25,7 @@ void choose(int cur){
 }
 
 int main() {
-    cin>>n>>k;
+    cin>>k>>n;
     choose(1);
     return 0;
 }
