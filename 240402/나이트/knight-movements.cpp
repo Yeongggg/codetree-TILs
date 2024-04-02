@@ -35,9 +35,13 @@ void bfs(int x, int y){
 int main() {
 
     cin >> n;
-    cin>>r1>>r2>>c1>>c2;
+    cin>>r1>>c1>>r2>>c2;
 
     bfs(r1-1,c1-1);
-    cout<<dis[r2-1][c2-1] -1;    
+    if(dis[r2-1][c2-1] == 0){
+        cout<<-1;
+    }else{
+        cout<<dis[r2-1][c2-1]-1;
+    }
     return 0;
 }
