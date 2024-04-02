@@ -13,7 +13,8 @@ void dfs(int x, int y){
         int nx = x+ dx[i];
         int ny = y + dy[i];
         if(nx <0 || ny <0 || nx >=n || ny >=m) continue;
-        if(arr[nx][ny]==1){
+        if(arr[nx][ny]==1 && !visited[nx][ny]){
+            
             visited[nx][ny] =1;
             dfs(nx,ny);
         } 
@@ -28,6 +29,7 @@ int main() {
         }
     }
     dfs(0,0);
+
     if(visited[n-1][m-1] == 1){
         cout<<1;
     }else{
