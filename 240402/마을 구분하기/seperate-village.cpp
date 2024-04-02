@@ -10,12 +10,14 @@ int dy[] ={1,0,-1,0};
 int arr[26][26];
 int n;
 int vis[26][26];
-int cnt =0;
 
-void bfs(int x, int y){
+
+int bfs(int x, int y){
+    int cnt = 1;
     queue<pair<int,int>> q;
-    vis[x][y] ==1;
+    vis[x][y] =1;
     q.push({x,y});
+
     while(!q.empty()){
         auto cur = q.front();
         q.pop();
@@ -26,12 +28,15 @@ void bfs(int x, int y){
 
             if(nx <0 || ny <0 || nx >=n || ny >= n) continue;
             if(arr[nx][ny] == 1 && !vis[nx][ny]){
+                
                 vis[nx][ny] =1;
                 q.push({nx,ny});
                 cnt++;
             }
         }
+
     }
+    return cnt;
 }
 
 int main() {
@@ -46,9 +51,9 @@ int main() {
       for(int i =0;i<n; i++){
         for(int j =0; j<n; j++){
         if(arr[i][j] == 1 && !vis[i][j]){
-            bfs(i,j);
-            v.push_back(cnt);
-            cnt =0;
+           int temp = bfs(i,j);
+            v.push_back(temp);
+           
             }
         }
     }
